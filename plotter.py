@@ -181,86 +181,12 @@ def main():
 
 
 
-#    apply_scaling(
-#        ax, length, min_value, max_value, divide_by_ten, lock_aspect=False
-#    )
-
     plt.show()
 
 
 
 
 
-def add_celeration_angles(ax, chart_length, min_value, max_value):
-
-    upper_y = max_value/100 
-    lower_y = min_value
-
-    color = "#c4c4c4"
-    
-    start_session = chart_length//10-3
-
-    def calc_text_x(offset):
-        return 0.5+(start_session+offset)*10
-
-    upper_text_y = upper_y*10 + upper_y
-
-    ax.text(
-        calc_text_x(1), 
-        upper_text_y, 
-        "x1.1", 
-        color=color
-    )
-    x1_1 = displace_series(
-        internal.genx(1.1, 10, start=upper_y), 
-        start_session+1
-    )
-    ax.text(calc_text_x(2), upper_text_y, "x1.2", color=color)
-    x1_2 = displace_series(
-        internal.genx(1.2, 10, start=upper_y), 
-        start_session+2
-    )
-    ax.text(calc_text_x(3),upper_text_y, "x1.3", color=color)
-    x1_3 = displace_series(
-        internal.genx(1.3, 10, start=upper_y), 
-        start_session+3
-    )
-
-    lower_text_y = lower_y *10 +lower_y
-
-    x1_5 = displace_series(
-        internal.genx(1.5, 10, start=lower_y), 
-        start_session+1
-    )
-    ax.text(calc_text_x(1), lower_text_y, "x1.5", color=color)
-    x2 = displace_series(
-        internal.genx(2, 10, start=lower_y), 
-        start_session+2
-    )
-    ax.text(calc_text_x(2)+1, lower_text_y, "x2", color=color)
-    x3 = displace_series(
-        internal.genx(3, 10, start=lower_y), 
-        start_session+3
-    )
-    ax.text(calc_text_x(3)+1, lower_text_y, "x3", color=color)
-
-    ax.plot(x1_1, label="x1.1", lw=2.5, color=color)
-    ax.plot(x1_2, label="x1.2", lw=2.5, color=color)
-    ax.plot(x1_3, label="x1.3", lw=2.5, color=color)
-    ax.plot(x1_5, label="x1.5", lw=2.5, color=color)
-    ax.plot(x2, label="x2", lw=2.5, color=color)
-    ax.plot(x3, label="x3", lw=2.5, color=color)
-
-def apply_scaling(
-    ax, length, min_value, max_value, divide_by_ten, lock_aspect=True
-):
-    scale_length = length+10
-    scale = internal.apply_log_range(ax, min_value, max_value)
-    internal.apply_xrange(ax, scale_length, divide_by_ten=divide_by_ten)
-    plt.grid()
-
-    if lock_aspect:
-        internal.apply_scale_ratio(ax, scale)
 
 
 
