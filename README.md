@@ -15,3 +15,7 @@ When you've downloaded your export, extract the file and locate "watch-history.h
 Run `parser.py` to transform the html data into a CSV file that is lighter to work with. **This may take several minutes depending on the size of the file.**
 
 Once the parsing is complete, run the `plotter.py` script to plot your data. Play around with the parameters in the top of the script for different settings.
+
+## Troubleshooting
+
+Note that the scripts assume language settings on the account used. If the settings are different from mine, you may need to do some tinkering to get the parsing to work.
