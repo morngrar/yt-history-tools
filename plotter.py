@@ -15,8 +15,10 @@ MONTHLY = WEEKLY+1
 YEARLY = MONTHLY+1
 
 PERIOD = WEEKLY
-GOAL = 70
-LIMIT = date(2020,12,1)
+#GOAL = 70
+GOAL = 15
+#LIMIT = date(2020,12,1)
+LIMIT = date(2010,12,1)
 
 def add_phase(ax, x, y, text, rotation=76):
     if x != 0:
@@ -128,8 +130,14 @@ def main():
 #    add_phase(ax, short_intro_date, 4, "Shorts release")
 
     add_phase(ax, datetime(2023, 2, 10), 2, "start measurement")
+
+
+    add_phase(ax, datetime(2023, 4, 24), 2, "lowered goal from 70 to 15 per week")
+
+    add_phase(ax, datetime(2023, 5, 31), 2, "delivered MACS")
     
     # goal
+    plt.axhline(70, ls="--", color="#aac", label="First weekly goal")
     plt.axhline(GOAL, color="orange", label="Weekly goal")
     plt.axhline(3, color="green", label="Daily goal")
 
